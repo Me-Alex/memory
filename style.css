@@ -1,0 +1,18 @@
+html{
+}
+#center{
+}
+button {
+    width: 100px;
+    height: 100px;
+    background-color: inherit;
+    margin: 3px;
+
+}
+
+.casete {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    display: inherit;
+}
