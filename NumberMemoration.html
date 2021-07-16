@@ -1,13 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="randomNumbers.css">
     <title>Random number</title>
 </head>
+
 <body>
-    <p style="font-size: 40px;cursor: pointer;margin: auto;left: 35%;position: relative;color: blue;"onclick="window.location.href='index.html'">&laquo;</p>
-    
+    <p style="font-size: 40px;cursor: pointer;margin: auto;left: 35%;position: relative;color: blue;"
+        onclick="window.location.href='index.html'">&laquo;</p>
+    <div class="container">
+        <h1>Choose game mode</h1>
+        <div class="grid">
+            <button class="button" id="custom">Custom</button>
+            <button class="button" id="standard">Standard </button>
+            <button class="button" id="god-mode">God-mode </button>
+        </div>
+       
+        <div class="container-Container">
+            <h1 id="start" style="cursor:pointer">Start</h1>
+        </div>
+        <div class="add">
+
+        </div>
+        <h1 id="resset" onclick="window.location.reload();" style="cursor:pointer">Resset</h1>
+
+    </div>
+
 </body>
+<script src="randomNumbers.js"></script>
+
 </html>

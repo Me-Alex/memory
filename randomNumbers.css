@@ -1,0 +1,29 @@
+:root{
+    --buttonCOlor:red;
+    --buttonBgColor:blue;
+
+}
+.container{
+    text-align: center;
+    display:grid;
+    justify-content:center;
+    align-items:center;
+    grid-template-rows: auto auto;
+}
+.grid{
+    text-align: center;
+    display:grid;
+    justify-content:center;
+    align-items:center;
+    grid-template-columns:auto auto  auto;
+}
+.button{
+    width: auto;
+    height: 40px;
+    font-size: large;
+    color:var(--buttonCOlor);
+    background-color:var(--buttonBgColor);
+    border: 0;
+    margin:5px;
+    padding: 3px;
+}
