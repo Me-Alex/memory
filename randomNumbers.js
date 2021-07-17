@@ -60,10 +60,15 @@ function createElement(element, location, childInnerText) {
     setTimeout(hide, 2000);
     let input = document.createElement("input");
     input.type = "number";
+    // input.setAttribute("class","input");
     setTimeout(() => {
         here.appendChild(input);
+        let inp=document.querySelector("input");
+        inp.focus();
+        console.log(inp);
         console.log(here.children[1]);
     }, 2000)
+  
     input.onkeypress = (e) => {
         if (e.which == 13) {
             if (!isNaN(input.value) && input.value == game.numbers) {
