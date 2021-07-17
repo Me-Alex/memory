@@ -36,6 +36,18 @@ let standard = document.getElementById("standard");
 let godM = document.getElementById("god-mode");
 let reset = document.getElementById("resset");
 
+function createE(element, location, childInnerText) {
+    let child = document.createElement(element);
+    let here = document.querySelector(location);
+    here.appendChild(child);
+    child.innerText = childInnerText;
+    return child;
+}
+function qSelect(tofind) {
+    let elmnt = document.querySelector(tofind);
+    return elmnt;
+}
+
 // making an element for showing the number that the users  needs to memorize
 function createElement(element, location, childInnerText) {
     let child = document.createElement(element);
@@ -47,6 +59,7 @@ function createElement(element, location, childInnerText) {
     }
     setTimeout(hide, 2000);
     let input = document.createElement("input");
+    input.type = "number";
     setTimeout(() => {
         here.appendChild(input);
         console.log(here.children[1]);
@@ -58,9 +71,26 @@ function createElement(element, location, childInnerText) {
                 setTimeout(start, 0);
             }
             else {
-                alert("u lost hahahahha");
+
+                alert("number was " + game.numbers + " your's was " + input.value + "");
                 here.innerHTML = "";
+                // here.innerHTML = "<h1>number was " + game.numbers + "</h1><h1> your's was " + input.value + "</h1>";
+                setTimeout(() => {
+                    let elem = createE("button", ".add", "restart");
+                    elem.onclick = () => {
+                        setTimeout(start(), 0);
+                        elem.style.display = "none";
+                    }
+                }, 0);
                 setTimeout(resetGame, 0);
+                el.style.display = "inherit";
+                var elm1 = qSelect("#start");
+                elm1.style.display = "none";
+                // var elm1 = qSelect(".add");
+                // elm1.style.display = "none";
+
+
+
             }
         }
     };
@@ -72,21 +102,33 @@ function resetGame() {
 el.onclick = () => {
     game.gameMode = el.innerText;
     console.log(game);
-    setTimeout(start(), 0);
+    el.style.display = "none";
+    custom.style.display = "grid";
+    standard.style.display = "grid";
+    godM.style.display = "grid";
 }
 custom.onclick = () => {
     game.gameMode = custom.innerText;
     console.log(game);
+    custom.style.display = "none";
+    standard.style.display = "none";
+    godM.style.display = "none";
     setTimeout(start(), 0);
 }
 standard.onclick = () => {
     game.gameMode = standard.innerText;
     console.log(game);
+    custom.style.display = "none";
+    standard.style.display = "none";
+    godM.style.display = "none";
     setTimeout(start(), 0);
 }
 godM.onclick = () => {
     game.gameMode = godM.innerText;
     console.log(game);
+    custom.style.display = "none";
+    standard.style.display = "none";
+    godM.style.display = "none";
     setTimeout(start(), 0);
 }
 
@@ -95,7 +137,7 @@ function start() {
     let random = Math.floor(Math.random() * 10 ** game.lenght);
     game.lenght += 1;
     game.numbers = random;
-    setTimeout(createElement("p", ".add", "" + game.numbers + ""), 0);
+    setTimeout(createElement("h1", ".add", "" + game.numbers + ""), 0);
     console.log(game);
 
 }
