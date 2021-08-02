@@ -1,0 +1,8 @@
+:root{
+    --bg-color:white;
+    --text-color:black;
+    --bg-container:rgb(16, 119, 33);
+    --bg-actual-box:brown;
+    --bg-box-container:yellow;
+    --bg-actual-box-hover:blue;
+}
