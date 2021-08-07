@@ -2,7 +2,7 @@
     --bg-color:white;
     --text-color:black;
     --bg-container:rgb(16, 119, 33);
-    --bg-actual-box:brown;
+    --bg-actual-box:white;
     --bg-box-container:yellow;
-    --bg-actual-box-hover:blue;
+    --bg-actual-box-hover:rgb(222, 222, 228);
 }
