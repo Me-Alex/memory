@@ -2,7 +2,7 @@ var game = {
     numberOfBoxes1: 25,
     level: 0,
     numberOfBoxes: 3,
-    tryes:3,
+    tryes:4,
     levelComplete: false,
 };
 let buton = document.querySelector(".button");
