@@ -4,7 +4,7 @@ var game = {
     numberOfBoxes: 3,
     tryes:4,
     levelComplete: false,
-};
+}
 let buton = document.querySelector(".button");
 let container = document.querySelector(".container");
 let boxContainer = document.querySelector(".box-container");
