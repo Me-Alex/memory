@@ -2,13 +2,16 @@ var game = {
     numberOfBoxes1: 25,
     level: 0,
     numberOfBoxes: 3,
-    tryes:4,
+    tryes:3,
     levelComplete: false,
 }
 let buton = document.querySelector(".button");
 let container = document.querySelector(".container");
 let boxContainer = document.querySelector(".box-container");
 let storedBox = document.querySelector(".actual-box");
+let score=qSelect(".score");
+let scoreNumber=qSelect(".score-number");
+score.style.display="none";
 // console.log(container, boxContainer, box);
 // console.log(game.levelComplete);
 
@@ -28,7 +31,7 @@ passToNexTLevel();
 // console.log(getInputValue(input));
 var inputValue = 0;
 let ceva = getInputValue();
-console.log(ceva);
+// console.log(ceva);
 let tempVar = null;
 // console.log(getRandomArbitrary(0, 222223));
 
@@ -40,19 +43,19 @@ buton.onclick = () => {
 let lifesContainer=qSelect(".container-lifes");
 let life=qSelect(".life");
 let lifes=qSelect(".lifes");
-console.log(lifes);
+// console.log(lifes);
 //note here with * for every time you come back and you didn't understend a thing 
-//* * *
+//* * * *
 function start() {
     lifes.style.visibility="visible";
     let ar = amountOfRandomNr(game.level + 4);
-    console.log(ar);
+    // console.log(ar);
     showClass.style.display = "inherit";
     buton.style.display = "none";
     while (checkTheArrayForItContainsTheSameNumbers(ar)) {
         ar = amountOfRandomNr(game.level + 4);
     }
-    console.log(ar);
+    // console.log(ar);
     CurrentLevel.innerHTML = game.level;
     clearForNewLevel();
     tempVar = getInputValue();
@@ -61,7 +64,7 @@ function start() {
     resetBackgroundColor(boxes);
     changeColor(ar, boxes);
     let tempAr = checkIfAllGotClicked(ar, boxes);
-    console.log(tempAr);
+    // console.log(tempAr);
     passToNexTLevel();
 
 }
