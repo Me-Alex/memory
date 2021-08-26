@@ -20,6 +20,7 @@ let box = document.querySelector(".actual-box");
 let boxContainerNew = document.querySelector(".box-container");
 let NewContainer = document.querySelector(".container");
 let CurrentLevel = document.querySelector(".current-level");
+let storedValueOfLife=qSelect(".life");
 let showClass = qSelect(".show-level");
 showClass.style.display = "none";
 clearForNewLevel();
@@ -36,10 +37,14 @@ let tempVar = null;
 buton.onclick = () => {
     start();
 }
+let lifesContainer=qSelect(".container-lifes");
+let life=qSelect(".life");
 let lifes=qSelect(".lifes");
-
+console.log(lifes);
+//note here with * for every time you come back and you didn't understend a thing 
+//* * *
 function start() {
-    lifes.style.display="flex";
+    lifes.style.visibility="visible";
     let ar = amountOfRandomNr(game.level + 4);
     console.log(ar);
     showClass.style.display = "inherit";
@@ -54,13 +59,9 @@ function start() {
     drawBoxes(game.numberOfBoxes);
     let boxes = document.querySelectorAll(".actual-box");
     resetBackgroundColor(boxes);
-    // var boxes = document.querySelectorAll(".actual-box");
-    // console.log(boxes[2].style.backgroundColor);
-    // boxes[2].style.backgroundColor="yellow";
-    // changeColorBack(ar, boxes);
     changeColor(ar, boxes);
     let tempAr = checkIfAllGotClicked(ar, boxes);
     console.log(tempAr);
     passToNexTLevel();
-    // setTimeout(changeColorBack(ar,boxes),6000);
+
 }

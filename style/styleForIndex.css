@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    width: 100vw;
+    height: 96vh;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    border: 0;
+}
+.container button{
+    width: auto;
+    height: 30px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    border: 1px solid red;
+    margin: 3px;
+}
+body{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

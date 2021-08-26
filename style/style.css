@@ -1,0 +1,26 @@
+html{
+}
+#center{
+}
+button {
+    width: 55px;
+    height: 55px;
+    background-color: white;
+    cursor: pointer;
+    /* border: 1px solid red; */
+    margin: 3px;
+
+}
+button:hover{
+    background-color: black;
+    color:white;
+    border-color:green;
+
+}
+
+.casete {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    display: inherit;
+}

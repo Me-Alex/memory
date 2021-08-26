@@ -5,13 +5,11 @@ function qSelect(tofind) {
     let elmnt = document.querySelector(tofind);
     return elmnt;
 }
-function clone(parentClassOrId, child, times) {
-    let elemntParent = qSelect(parentClassOrId);
-    let elemntChild = qSelect(child);
-    for (let i = 0; i < times; i++) {
-        elemntParent.appendChild(elemntChild.cloneNode(true));
-    }
+function qSelectAll(tofind) {
+    let elmnt = document.querySelectorAll(tofind);
+    return elmnt;
 }
+
 function passToNexTLevel() {
     game.level += 1;
     game.numberOfBoxes += 0.5;
@@ -22,10 +20,23 @@ function clearForNewLevel() {
     NewContainer.innerHTML = "";
     boxContainerNew.innerHTML = "";
 }
+function clone(parentClassOrId, child, times) {
+    let elemntParent = qSelect(parentClassOrId);
+    let elemntChild = qSelect(child);
+    for (let i = 0; i < times; i++) {
+        elemntParent.appendChild(elemntChild.cloneNode(true));
+    }
+}
 function drawBoxes(Value) {
     container.append(boxContainer);
     boxContainer.append(storedBox);
     clone(".box-container", ".actual-box", Value);
+    clone(".container", ".box-container", Value);
+}
+function drawLifes(value) {
+    lifesContainer.append(lifes);
+    boxContainer.append(storedBox);
+    clone(".container-lifes", ".lifes", Value);
     clone(".container", ".box-container", Value);
 }
 function getInputValue() {
@@ -64,7 +75,7 @@ function checkTheArrayForItContainsTheSameNumbers(array) {
 function changeColor(array, boxesArray) {
     array.forEach((arr, index) => {
         // console.log(arr);
-        // console.log("aici");
+        // console.log("who is arr? "+arr+" iar index este "+index+""+"iar arr[index] eset"+arr[index]+"");
         let ind = arr[index];
         // console.log(boxesArray[arr]);
         boxesArray[arr].style.backgroundColor = "yellow";
@@ -79,25 +90,66 @@ function changeColor(array, boxesArray) {
         }, timeoutMs)
 
     })
+
     boxesArray.forEach((e, index) => {
         e.onclick = () => {
             // console.log(index);
-            game.tryes -= 1;
+            --game.tryes;
             e.style.backgroundColor = "red";
+            let numberOfLifes = qSelectAll(".life");
+            if (game.tryes < 3) {
+                numberOfLifes[game.tryes].style.display = "none";
+                console.log("hey I am here");
+            }
+            // if(game.tryes===3){
+            //     numberOfLifes.forEach((e,index)=>{
+            //         e.style.display="inherit";
+            //     })
+            // }
+            // let numberOfLifesParent = qSelect(".lifes");
+            // if (numberOfLifes.length > 0) {
+            //     numberOfLifes[0].style.display = "none";
+            //     numberOfLifesParent.removeChild(numberOfLifes[0]);
+            // }
+            // if (numberOfLifes.length == 0) { 
+            //     storedValueOfLife.style.display="";
+            //     numberOfLifesParent.appendChild(storedValueOfLife);
+
+            // }
+            // console.log(numberOfLifes);
             if (game.tryes == 0) {
                 clearForNewLevel();
-                game.tryes=3;
-                game.level=1;
-                alert("you lost");
-                buton.style.display="inherit";
-                lifes.style.display="none";
-                showClass.style.display="none";
-
+                // if(!checkIfAllGotClicked(newAr)&&game.tryes==0){
+                //     newArr.forEach((e,index)=>{
+                //         if(e==0){
+                //             boxesArray[index].style="blue";
+                //         }
+                //     })
+                // }
+                game.tryes = 3;
+                game.level = 1;
+                game.numberOfBoxes = 4;
+                console.log("you lost");
+                buton.style.display = "inherit";
+         
+                showClass.style.display = "none";
+                numberOfLifes.forEach((e, index) => {
+                    e.style.display = "";
+                })
+                lifes.style.visibility = "hidden";
 
             }
         }
     })
-    
+
+}
+function showUnpressedBoxes(newArr, boxesArray) {
+
+    newArr.forEach((e, index) => {
+        if (e == 0) {
+            boxesArray[index].style = "blue";
+        }
+    })
 }
 function resetBackgroundColor(boxes) {
     boxes.forEach((e) => {
@@ -135,6 +187,7 @@ function checkIfAllGotClicked(array, boxesArray) {
                 boxesArray[arr].style.backgroundColor = "";
                 start();
             }
+
         }
     })
     return newAr;
@@ -148,6 +201,9 @@ function checkIfAllGotClicked1(newAr) {
     })
     return flag1;
 }
+// function removeOneLife(input){
+
+// }
 // function getInputValue(input){
 //     return input.value;
 // }

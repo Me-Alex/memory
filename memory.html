@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memory</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style/style.css">
 </head>
 
 <body onload="">
     <p style="width:fit-content; font-size: 40px;cursor: pointer;left: 35%;position: relative;color: blue;"
     onclick="window.location.href='index.html'">&laquo;</p>
     <center onload="" id="center">
-        <h1 onclick="creatingChildrens(0,document.getElementById('gridValue').value,1);  ">Start</h1>
+        <h1 style="cursor:pointer;"onclick="creatingChildrens(0,document.getElementById('gridValue').value,1);  ">Start</h1>
 
         <label for="grid">choose me</label>
-        <script src="createElements.js"></script>
+        <script src="js/createElements.js"></script>
 
         <label for="casute">cate casute sa apara</label>
         <input type="text" id="casute" value="4">
@@ -33,9 +33,9 @@
                 //this loop creates the mainGrid with the buttons and all the good stuff 
             // }
         </script>
-        <h1 onclick="window.location.reload();">Reload</h1>
+        <h1 style="cursor:pointer;" onclick="window.location.reload();">Reload</h1>
     </center>
 </body>
-<script src="style.js"></script>
+<script src="js/style.js"></script>
 
 </html>
